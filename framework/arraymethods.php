@@ -27,5 +27,19 @@ namespace Framework
                 return trim($item);
             }, $array);
         }
+        
+        public static function toObject($array)
+        {
+            $result = new \stdClass();
+            
+            foreach($array as $key => $value) {
+                if(is_array($value)) {
+                    $result->{$key} = self::toObject($value);
+                }else {
+                    $result->{$key} = $value;
+                }
+            }
+            return $result;
+        }
     }
 }
