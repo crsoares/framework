@@ -2,9 +2,9 @@
 
 namespace Framework\Configuration 
 {
-    use Framework\Core\Exception;
+    //use Framework\Core\Exception;
     
-    class Exception extends Exception 
+    class Exception extends \Framework\Core\Exception 
     {
         
     }

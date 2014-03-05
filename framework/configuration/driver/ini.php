@@ -21,10 +21,10 @@ namespace Framework\Configuration\Driver
                     $string = ob_get_contents();
                 ob_end_clean();
                 
-                $pairs = parse_ini_file($string);
+                $pairs = parse_ini_string($string);
                 
                 if($pairs == false) {
-                    throw new Exception\Syntax("Não foi possível analisar o arquivo de configuração");
+                    throw new Exception\Syntax("Nao foi possivel analisar o arquivo de configuracao");
                 }
                 
                 foreach($pairs as $key => $value) {
@@ -37,7 +37,7 @@ namespace Framework\Configuration\Driver
         
         protected function _pair($config, $key, $value)
         {
-            if(srtstr($key, ".")) {
+            if(strstr($key, ".")) {
                 $parts = explode(".", $key, 2);
                 
                 if(empty($config[$parts[0]])) {

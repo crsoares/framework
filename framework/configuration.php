@@ -20,7 +20,7 @@ namespace Framework
         
         protected function _getExceptionForImplementation($method)
         {
-            return new Exception\Implementation("{$method} método não implementado");
+            return new Exception\Implementation("{$method} metodo nao implementado");
         }
         
         public function initialize()
@@ -32,7 +32,7 @@ namespace Framework
             switch($this->type) {
                 case "ini":
                 {
-                    return new Configuration\Deiver\Ini($this->options);
+                    return new Configuration\Driver\Ini($this->options);
                     break;
                 }
                 default:
